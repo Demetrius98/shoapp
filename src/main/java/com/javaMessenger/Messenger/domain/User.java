@@ -8,9 +8,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
+ * User class for DTO pattern with MongoDB collection <>User</>
  *
- * @author Dmitry
- */
+ * This class represents user instance: {email, password, name}
+ *
+ * @author dmitry
+ * */
 @Document(collection = "user")
 public class User {
 

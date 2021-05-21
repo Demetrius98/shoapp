@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Handler of success authentication: starting WebSocket
  *
  * @author dmitry
  */

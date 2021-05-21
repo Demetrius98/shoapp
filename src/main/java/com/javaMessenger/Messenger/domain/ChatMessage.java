@@ -7,6 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+/**
+ * ChatMessage class for DTO pattern with MongoDB collection <>ChatMessage</>
+ * This class represents message instance {id, MessageType: CHAT, JOIN, LEAVE, text, sender,
+ * recipient, sending time}
+ * @author dmitry
+ * */
 @Document(collection = "ChatMessage")
 public class ChatMessage {
     @Id

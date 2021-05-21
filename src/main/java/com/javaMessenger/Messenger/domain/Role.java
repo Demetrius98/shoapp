@@ -5,6 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 
+/**
+ * Role class for DTO pattern with MongoDB collection <>Role</>
+ * This class storage Role of user: {Admin, user}
+ *
+ * @author dmitry
+ * */
+
 @Document(collection = "role")
 public class Role {
 

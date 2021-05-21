@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
+ * Controller for Authorization tasks
  *
  * @author dmitry
  */
@@ -28,6 +29,9 @@ public class LoginController {
     @Autowired
     private CustomUserDetailsService userService;
 
+    /**
+     * GET Method @return login.html
+     *  */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
@@ -35,6 +39,9 @@ public class LoginController {
         return modelAndView;
     }
 
+    /**
+     * GET Method @return signup.html
+     *  */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView signup() {
         ModelAndView modelAndView = new ModelAndView();
@@ -44,6 +51,10 @@ public class LoginController {
         return modelAndView;
     }
 
+    /**
+     * POST Method for transfering registration user data
+     * @param user - user data: {email, password}
+     * */
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
@@ -65,6 +76,10 @@ public class LoginController {
         return modelAndView;
     }
 
+    /**
+     * GET Method @return dashboard.html
+     * @param /dashboard - main page of application with chat
+     *  */
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView dashboard(HttpServletRequest request, Model model, @RequestParam(required = false, name = "email") String emailTo) {
@@ -96,7 +111,10 @@ public class LoginController {
         modelAndView.setViewName("dashboard");
         return modelAndView;
     }
-    
+
+    /**
+     * GET Method @return home.html
+     *  */
     @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
     public ModelAndView home(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
@@ -105,6 +123,11 @@ public class LoginController {
         return modelAndView;
     }
 
+    /**
+     * POST Method for logout
+     *
+     * @param /logout close WebSocket and return home page
+     *  */
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public ModelAndView logout(HttpServletRequest request) {
 

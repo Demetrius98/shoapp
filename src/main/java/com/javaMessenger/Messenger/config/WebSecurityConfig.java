@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
+ * Web Security configuration
  *
  * @author dmitry
  */
@@ -21,17 +22,21 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /** Password Encryption */
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    /** Authentication success Handler */
     @Autowired
     CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
 
+    /** Connection with MongoDB services */
     @Bean
     public UserDetailsService mongoUserDetails() {
         return new CustomUserDetailsService();
     }
 
+    /** Configurate of MongoDB for check login and password */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         UserDetailsService userDetailsService = mongoUserDetails();
@@ -41,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    /** Configure access to web pages */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -58,6 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/").and().exceptionHandling();
     }
 
+    /** Configuration of access to resources */
     @Override
     public void configure(WebSecurity web) throws Exception {
         web

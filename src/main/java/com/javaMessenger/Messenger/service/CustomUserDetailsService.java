@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 /**
+ * Class contains operations with collection "user" of mongoDB
  *
  * @author dmitry
  */

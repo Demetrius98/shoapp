@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Class contains operations with collection "messages" of mongoDB
+ *
+ * @author dmitry
+ * */
 @Service
 public class ChatMessageService {
     @Autowired
@@ -18,6 +23,11 @@ public class ChatMessageService {
     @Autowired
     private MongoOperations mongoOperations;
 
+    /**
+     * Method for saving message to MongoDB
+     *
+     * @param message
+     * */
     public void saveMessage (ChatMessage message) {
       message.setSender(message.getSender());
       message.setType(message.getType());
@@ -28,6 +38,12 @@ public class ChatMessageService {
       chatMessageRepository.save(message);
     }
 
+    /**
+     * Get List of Messages from MongoDB
+     *
+     * @param sender - full name of sender
+     * @param recipient - full name of recipient
+     *  */
     public List <ChatMessage> getListOfMessages (String sender, String recipient) {
         Query query = new Query();
         query.addCriteria(Criteria.where("sender").is(sender));

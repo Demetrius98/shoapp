@@ -12,6 +12,10 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
+/**
+ *  Class for session logger
+ * */
+
 @Component
 public class HttpHandshakeInterceptor implements HandshakeInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(HttpHandshakeInterceptor.class);

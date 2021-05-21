@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 /**
+ * Interface contains additional operations with collection "User" of MongoDB
  *
  * @author dmitry
  */
